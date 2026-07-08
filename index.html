@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вибропрессы и Бетонные Заводы Рифей в Казахстане</title>
+    <style>
+        :root {
+            --bg-color: #1e252b;
+            --card-bg: #283139;
+            --accent-color: #ff6c00;
+            --text-main: #ffffff;
+            --text-muted: #a0aec0;
+            --border-color: #3e4d59;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #161b20;
+            border-bottom: 2px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-main);
+            background-color: var(--accent-color);
+        }
+
+        .page-section {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .hero-container {
+            background: linear-gradient(135deg, #232d36 0%, #161b20 100%);
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+            padding: 40px;
+        }
+
+        .hero-text {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 108, 0, 0.15);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 108, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .hero-photos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .hero-photo-item {
+            background-color: #12161a;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--text-main);
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #e05f00;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0 auto;
+        }
+
+        .catalog-category-title {
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            margin: 20px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--text-main);
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px;
+        }
+
+        .product-tag {
+            align-self: flex-start;
+            background-color: rgba(255, 108, 0, 0.1);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+        .contact-info h3:first-child {
+            margin-top: 0;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        footer {
+            background-color: #161b20;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero-photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        @media (max-width: 500px) {
+            .hero-photos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">РИФЕЙ-<span>КАЗАХСТАН</span></div>
+            <ul class="nav-menu">
+                <li><a class="nav-link active" onclick="switchPage('home')">Главная</a></li>
+                <li><a class="nav-link" onclick="switchPage('catalog')">Вибропрессы</a></li>
+                <li><a class="nav-link" onclick="switchPage('factories')">Бетонные заводы</a></li>
+                <li><a class="nav-link" onclick="switchPage('services')">Услуги</a></li>
+                <li><a class="nav-link" onclick="switchPage('contacts')">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ГЛАВНАЯ СТРАНИЦА -->
+    <main id="home-page" class="page-section active">
+        <section class="hero-container">
+            <div class="hero-text">
+                <h1>Промышленное оборудование <span>Рифей</span></h1>
+                <div class="hero-badge">Официальный представитель в Казахстане</div>
+                <p>Консультации, технология, сопровождение, оригинальные запчасти и пусконаладка вибропрессующих линий и бетонных заводов.</p>
+                <button class="btn" onclick="switchPage('catalog')">Посмотреть вибропрессы</button>
+            </div>
+            
+            <!-- СЕТКА ИЗ 3 АКТУАЛЬНЫХ ИЗОБРАЖЕНИЙ -->
+            <div class="hero-photos-grid">
+                <div class="hero-photo-item">
+                    <img src="PUlt-upravleniya-2.jpg" alt="Пульт управления Рифей">
+                </div>
+                <div class="hero-photo-item">
+                    <img src="05.jpg" alt="Бетонный завод Рифей">
+                </div>
+                <div class="hero-photo-item">
+                    <img src="1.jpeg" alt="Линия Рифей в цеху">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Надежное партнерство</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Заводское качество</h3>
+                    <p>Прямые поставки оборудования высокой надежности для производства блоков, брусчатки, бордюров и товарного бетона.</p>
+                    <a onclick="switchPage('catalog')" style="color:var(--accent-color); cursor:pointer; font-weight:500;">Подробнее &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>Комплексный инжиниринг</h3>
+                    <p>Мы не просто продаем станки, а запускаем готовый бизнес: от анализа площадки до выпуска первой коммерческой партии изделий.</p>
+                    <a onclick="switchPage('services')" style="color:var(--accent-color); cursor:pointer; font-weight:500;">Наши услуги &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- СТРАНИЦА: ВИБРОПРЕССЫ -->
+    <main id="catalog-page" class="page-section">
+        <h2 class="section-title">Вибропрессующее оборудование Рифей</h2>
+        
+        <h3 class="catalog-category-title">Высокопроизводительные комплексы</h3>
+        <div class="grid">
+            <div class="product-card">
+                <div>
+                    <div class="product-tag">Флагман линейки</div>
+                    <h3 class="product-title">Рифей-Прогресс</h3>
+                    <p class="product-desc">Самый мощный автоматизированный вибропрессующий комплекс. Максимальная производительность стройматериалов с минимальным использованием ручного труда.</p>
+                </div>
+                <div>
+                    <div class="product-price">от 56 800 000 ₸</div>
+                    <button class="btn" onclick="openOrderModal('Рифей-Прогресс')">Запросить расчет</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <div class="product-tag">Высокая мощность</div>
+                    <h3 class="product-title">Универсальные комплексы Рифей-Бетон</h3>
+                    <p class="product-desc">Высокопроизводительные линии (Рифей-Удар-Бетон, Рифей-Полюс-Бетон, Рифей-Буран-Бетон), совмещающие полноценный бетонный завод и формующий блок для блоков, плитки и бордюров.</p>
+                </div>
+                <div>
+                    <div class="product-price">от 44 000 000 ₸</div>
+                    <button class="btn" onclick="openOrderModal('Универсальные комплексы Рифей-Бетон')">Запросить расчет</button>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="catalog-category-title">Среднепроизводительные вибропрессы</h3>
+        <div class="grid">
+            <div class="product-card">
+                <div>
+                    <div class="product-tag">Хит продаж</div>
+                    <h3 class="product-title">Рифей-Буран-2А</h3>
+                    <p class="product-desc">Специализированная линия для интенсивного производства элементов благоустройства, дорожных и магистральных бордюров, тротуарной плитки.</p>
+                </div>
+                <div>
+                    <div class="product-price">от 33 000 000 ₸</div>
+                    <button class="btn" onclick="openOrderModal('Рифей-Буран-2А')">Запросить расчет</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <div class="product-tag">Надежный выбор</div>
+                    <h3 class="product-title">Рифей-Буран</h3>
+                    <p class="product-desc">Мощная вибропрессующая линия высокой надежности. Идеальный баланс стоимости, жесткости конструкции и качества выпускаемой готовой продукции.</p>
+                </div>
+                <div>
+                    <div class="product-price">от 25 600 000 ₸</div>
+                    <button class="btn" onclick="openOrderModal('Рифей-Буран')">Запросить расчет</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <div class="product-tag">Доступный класс</div>
+                    <h3 class="product-title">Рифей-Полюс</h3>
+                    <p class="product-desc">Популярный универсальный механизированный комплекс среднего класса. Оптимальное решение для стабильного и быстрого развертывания собственного бизнеса.</p>
+                </div>
+                <div>
+                    <div class="product-price">от 22 500 000 ₸</div>
+                    <button class="btn" onclick="openOrderModal('Рифей-Полюс')">Запросить расчет</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <div class="product-tag">Высокая точность</div>
+                    <h3 class="product-title">РАМ-1000</h3>
+                    <p class="product-desc">Современный вибропресс средней мощности с оптимизированной системой формования. Обеспечивает строгую геометрию и высокую плотность изделий.</p>
+                </div>
+                <div>
+                    <div class="product-price">от 24 100 000 ₸</div>
+                    <button class="btn" onclick="openOrderModal('РАМ-1000')">Запросить расчет</button>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="catalog-category-title">Механизированные вибропрессы</h3>
+        <div class="grid">
+            <div class="product-card">
+                <div>
+                    <div class="product-tag">Компактный хит</div>
+                    <h3 class="product-title">Рифей-Кондор</h3>
+                    <p class="product-desc">Высокоэффективная малогабаритная установка для выпуска стеновых блоков и тротуарной плитки. Идеальна для малого бизнеса и ограниченных пространств.</p>
+                </div>
+                <div>
+                    <div class="product-price">от 4 800 000 ₸</div>
+                    <button class="btn" onclick="openOrderModal('Рифей-Кондор')">Запросить расчет</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- СТРАНИЦА: БЕТОННЫЕ ЗАВОДЫ -->
+    <main id="factories-page" class="page-section">
+        <h2 class="section-title">Бетонные заводы Рифей</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 700px; margin: -20px auto 40px auto;">
+            Современные технологические комплексы для автоматизированного приготовления бетонных смесей различных марок. Высокая точность дозирования и стабильная работа.
+        </p>
+        
+        <div class="grid">
+            <div class="product-card">
+                <div>
+                    <div class="product-tag">Стационарные БЗ</div>
+                    <h3 class="product-title">Стационарные Бетонные Заводы</h3>
+                    <p class="product-desc">Полноценные заводы высокой производительности для бесперебойного снабжения крупных строительных объектов и коммерческой продажи товарного бетона.</p>
+                </div>
+                <div>
+                    <div class="product-price">от 24 500 000 ₸</div>
+                    <button class="btn" onclick="openOrderModal('Стационарный бетонный завод')">Запросить КП</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <div class="product-tag">Мобильные БЗ</div>
+                    <h3 class="product-title">Мобильные Бетонные Заводы Рифей</h3>
+                    <p class="product-desc">Быстровозводимые компактные заводы. Идеально подходят для дорожного строительства и объектов, требующих частой смены локации узла приготовления.</p>
+                </div>
+                <div>
+                    <div class="product-price">от 19 200 000 ₸</div>
+                    <button class="btn" onclick="openOrderModal('Мобильный бетонный завод')">Запросить КП</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- СТРАНИЦА: УСЛУГИ -->
+    <main id="services-page" class="page-section">
+        <h2 class="section-title">Наши инженерные услуги</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Консультации и Технология</h3>
+                <p>Профессиональный подбор комплектации под сырье заказчика (отсев, песок, шлаки). Помощь в оптимизации рецептур смесей для получения максимальной прочности и снижения себестоимости.</p>
+            </div>
+            <div class="card">
+                <h3>Шеф-монтаж и Пусконаладка</h3>
+                <p>Выезд квалифицированных инженеров на объект в любую точку Казахстана. Проведение монтажных работ, подключение автоматики, точная калибровка датчиков и обучение вашего персонала.</p>
+            </div>
+            <div class="card">
+                <h3>Матрицы и Запчасти</h3>
+                <p>Организация оперативной поставки оригинальных формообразующих оснасток (матрица-пуансон) любой сложности под тротуарную плитку, бордюры или блоки, а также быстроизнашивающихся узлов.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- КОНТАКТЫ -->
+    <main id="contacts-page" class="page-section">
+        <h2 class="section-title">Контакты</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Официальный представитель</h3>
+                <p>Александр</p>
+
+                <h3>Телефон</h3>
+                <p><a href="tel:+77051407300">+7 (705) 140-73-00</a></p>
+
+                <h3>E-mail</h3>
+                <p><a href="mailto:foxet65@gmail.com">foxet65@gmail.com</a></p>
+
+                <h3>Режим работы</h3>
+                <p>Без выходных, в любое время</p>
+            </div>
+
+            <div class="contact-form">
+                <h3>Оставить заявку</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Заполните форму, и мы свяжемся с вами в ближайшее время.</p>
+                
+                <form id="orderForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="clientName">Ваше имя</label>
+                        <input type="text" id="clientName" class="form-control" required placeholder="Введите ваше имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPhone">Номер телефона</label>
+                        <input type="tel" id="clientPhone" class="form-control" required placeholder="+7 (705) 123-45-67">
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentType">Интересующее оборудование</label>
+                        <select id="equipmentType" class="form-control">
+                            <option value="Общая консультация">Выберите тему или модель...</option>
+                            <option value="Рифей-Прогресс">Рифей-Прогресс</option>
+                            <option value="Универсальные комплексы Рифей-Бетон">Универсальные комплексы Рифей-Бетон</option>
+                            <option value="Рифей-Буран-2А">Рифей-Буран-2А</option>
+                            <option value="Рифей-Буран">Рифей-Буран</option>
+                            <option value="Рифей-Полюс">Рифей-Полюс</option>
+                            <option value="РАМ-1000">РАМ-1000</option>
+                            <option value="Рифей-Кондор">Рифей-Кондор</option>
+                            <option value="Бетонные Заводы Рифей">Бетонные Заводы Рифей</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Отправить запрос</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Официальный представитель Рифей в Казахстане. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            document.getElementById(pageId + '-page').classList.add('active');
+            
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => {
+                if(pageId === 'home' && link.textContent.includes('Главная')) link.classList.add('active');
+                if(pageId === 'catalog' && link.textContent.includes('Вибропрессы')) link.classList.add('active');
+                if(pageId === 'factories' && link.textContent.includes('Бетонные заводы')) link.classList.add('active');
+                if(pageId === 'services' && link.textContent.includes('Услуги')) link.classList.add('active');
+                if(pageId === 'contacts' && link.textContent.includes('Контакты')) link.classList.add('active');
+            });
+            
+            window.scrollTo(0, 0);
+        }
+
+        function openOrderModal(modelName) {
+            switchPage('contacts');
+            document.getElementById('equipmentType').value = modelName;
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const type = document.getElementById('equipmentType').value;
+
+            alert(`Спасибо за обращение, ${name}!\nВаша заявка по теме "${type}" успешно принята. Александр свяжется с вами по телефону ${phone}.`);
+            document.getElementById('orderForm').reset();
+        }
+    </script>
+</body>
+</html>
