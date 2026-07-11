@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сестры милосердия — Кокшетауская епархия</title>
+    
+    <!-- Подключаем славянский шрифт Ruslan Display и строгий Georgia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
+
+    <style>
+        /* Общие стили и сброс */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Анимация переливающегося фона */
+        @keyframes gradientBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: "Georgia", "Times New Roman", serif;
+            line-height: 1.6;
+            color: #333333;
+            /* Настройка нежного градиента: молочный, пастельно-голубой, золотисто-бежевый */
+            background: linear-gradient(-45deg, #fdfbf7, #f4f7fa, #faf6ee, #fcfbfa);
+            background-size: 400% 400%;
+            animation: gradientBg 15s ease infinite;
+        }
+        
+        /* Контейнер */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 3px solid #1a3c6d; 
+            padding: 20px 0;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        .eparchy-title {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666666;
+            margin-bottom: 5px;
+        }
+        .main-title {
+            font-family: 'Ruslan Display', serif; /* Стилизация под вязь */
+            font-size: 2rem;
+            color: #1a3c6d;
+            font-weight: normal;
+        }
+
+        /* Главный баннер */
+        .hero {
+            background: rgba(26, 60, 109, 0.03);
+            padding: 50px 0;
+            text-align: center;
+            border-bottom: 1px solid #e2ded5;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-family: 'Ruslan Display', serif; /* Стилизация под вязь */
+            font-size: 2.6rem;
+            color: #1a3c6d;
+            margin-bottom: 15px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        .hero-subtitle {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #555555;
+            margin-bottom: 25px;
+        }
+        
+        /* Блок с иконой */
+        .icon-block {
+            margin-bottom: 25px;
+        }
+        .icon-img {
+            max-width: 170px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+            border: 3px solid #d1c9b8;
+            background-color: #fff;
+        }
+
+        .icon-protection {
+            display: inline-block;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border: 1px solid #d1c9b8;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: #705435;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            font-weight: bold;
+        }
+
+        /* Секции */
+        section {
+            padding: 50px 0;
+        }
+        .section-bg {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(240, 237, 230, 0.8);
+            border-bottom: 1px solid rgba(240, 237, 230, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        h2 {
+            font-family: 'Ruslan Display', serif; /* Стилизация под вязь */
+            font-size: 2.1rem;
+            color: #1a3c6d;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: normal;
+            position: relative;
+        }
+        h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 2px;
+            background-color: #d1c9b8;
+            margin: 15px auto 0 auto;
+        }
+
+        /* Блок О сестричестве */
+        .about-block {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        .about-text {
+            flex: 1.2;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        .about-photo-wrapper {
+            flex: 0.8;
+            text-align: center;
+        }
+        .about-photo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e8e4db;
+        }
+
+        /* Сетка направлений деятельности */
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .grid-item {
+            flex: 1;
+            min-width: 280px;
+            background-color: rgba(253, 253, 253, 0.9);
+            border: 1px solid #e8e4db;
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+        }
+        .grid-item h3 {
+            color: #705435;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            font-weight: normal;
+            border-bottom: 1px solid #f4f1ea;
+            padding-bottom: 5px;
+        }
+
+        /* Блок помощи */
+        .help-box {
+            background-color: #1a3c6d;
+            color: #ffffff;
+            padding: 40px;
+            border-radius: 4px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(26, 60, 109, 0.15);
+        }
+        .help-box h3 {
+            font-family: 'Ruslan Display', serif; /* Стилизация под вязь */
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+        .help-box p {
+            margin-bottom: 20px;
+            color: #e2ecf7;
+            font-size: 1.1rem;
+        }
+
+        /* Контакты */
+        .contacts-list {
+            list-style: none;
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        .contacts-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e8e4db;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contacts-list li span:first-child {
+            font-weight: bold;
+            color: #555555;
+            padding-right: 15px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #222222;
+            color: #aaaaaa;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.9rem; }
+            .main-title { font-size: 1.4rem; }
+            h2 { font-size: 1.6rem; }
+            .about-block { flex-direction: column; gap: 20px; }
+            .grid { flex-direction: column; }
+            .contacts-list li {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+            .contacts-list li span:last-child {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="eparchy-title">Казахстанский Митрополичий Округ</div>
+            <div class="main-title">Кокшетауская и Акмолинская епархия</div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Блок для Владимирской иконы (файл: vladimirskaya.jpeg) -->
+                <div class="icon-block">
+                    <img src="vladimirskaya.jpeg" alt="Владимирская икона Божией Матери" class="icon-img">
+                </div>
+                <h1>Сестричество милосердия</h1>
+                <p class="hero-subtitle">Служение любви, сострадания и милосердия к ближним в г. Кокшетау</p>
+                <div class="icon-protection">
+                    В честь иконы Владимирской Божией Матери
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О сестричестве -->
+    <section>
+        <div class="container">
+            <h2>О нашем служении</h2>
+            <div class="about-block">
+                <div class="about-text">
+                    <p>Православное сестричество милосердия в городе Кокшетау объединяет людей, готовых посвятить свое время, силы и душевное тепло помощи тем, кто оказался в немощи и трудных жизненных обстоятельствах. Наше служение совершается по образу христианской любви и деятельного сострадания.</p>
+                    <p>Находясь под молитвенным покровом иконы Божией Матери «Владимирская», сестры стремятся приносить утешение, духовную и материальную поддержку каждому, кто нуждается в заботе и добром слове.</p>
+                </div>
+                <!-- Блок для фотографии сестер (файл: sestry.jpeg) -->
+                <div class="about-photo-wrapper">
+                    <img src="sestry.jpeg" alt="Сестры милосердия за работой" class="about-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Направления деятельности -->
+    <section class="section-bg">
+        <div class="container">
+            <h2>Направления помощи</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h3>Помощь в больницах</h3>
+                    <p>Духовная и практическая поддержка тяжелобольных людей, уход, организация таинств Исповеди и Причастия для находящихся на лечении.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Забота о пожилых</h3>
+                    <p>Патронажная помощь на дому одиноким престарелым гражданам, доставка продуктов, лекарств и помощь в бытовых нуждах.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Поддержка семей</h3>
+                    <p>Помощь многодетным, малообеспеченным семьям и тем, кто попал в кризисную жизненную ситуацию, вещами и продуктами первой необходимости.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Как помочь -->
+    <section>
+        <div class="container">
+            <div class="help-box">
+                <h3>Как вы можете помочь?</h3>
+                <p>Дело милосердия нуждается в поддержке каждого отзывчивого сердца. Вы можете присоединиться к сестричеству в качестве добровольца, помочь продуктами, средствами ухода или внести посильное пожертвование на дела благотворительности.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="section-bg">
+        <div class="container">
+            <h2>Контакты</h2>
+            <ul class="contacts-list">
+                <li>
+                    <span>Местонахождение:</span>
+                    <span>Республика Казахстан, г. Кокшетау, Кафедральный собор Рождества Христова</span>
+                </li>
+                <li>
+                    <span>Телефон / WhatsApp:</span>
+                    <span>[Укажите номер телефона]</span>
+                </li>
+                <li>
+                    <span>E-mail:</span>
+                    <span>[Укажите электронный адрес]</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Кокшетауская епархия. Сестричество во имя Владимирской иконы Божией Матери. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
