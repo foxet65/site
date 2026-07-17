@@ -1,446 +1,529 @@
-S<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сестры милосердия — Кокшетауская епархия</title>
-    
-    <!-- Подключаем славянский шрифт Ruslan Display -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
-
     <style>
-        /* Общие стили и сброс */
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            font-family: "Georgia", "Times New Roman", serif;
             line-height: 1.6;
-            color: #222222;
-            
-            /* Насыщенный, глубокий Богородичный сине-золотой градиент */
-            background: linear-gradient(180deg, #7ba4cc 0%, #b5cee7 40%, #edd9b8 75%, #d1b894 100%);
-            background-attachment: fixed; /* Фон зафиксирован при прокрутке */
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
         }
 
-        /* Контейнер для мерцающих звезд на фоне */
-        .stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Звезды не мешают кликать по сайту */
-            z-index: 0;
+        header {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px solid #e9ecef;
         }
 
-        /* Базовый стиль для звездочки */
-        .star {
-            position: absolute;
-            background-color: #ffffff;
-            border-radius: 50%;
-            opacity: 0;
-            box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.7);
-            animation: twinkle 4s infinite ease-in-out;
+        header h2 {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 5px;
+            font-weight: normal;
         }
 
-        /* Анимация плавного мерцания */
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0.7); }
-            50% { opacity: 0.6; transform: scale(1.2); }
+        header h3 {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 15px;
+            font-weight: normal;
         }
 
-        /* Распределяем звездочки по экрану с разной задержкой */
-        .star1  { top: 12%; left: 15%; width: 3px; height: 3px; animation-delay: 0s; }
-        .star2  { top: 25%; left: 80%; width: 4px; height: 4px; animation-delay: 1.5s; }
-        .star3  { top: 40%; left: 8%;  width: 3px; height: 3px; animation-delay: 0.7s; }
-        .star4  { top: 55%; left: 88%; width: 5px; height: 5px; animation-delay: 2.2s; }
-        .star5  { top: 70%; left: 12%; width: 3px; height: 3px; animation-delay: 1.1s; }
-        .star6  { top: 85%; left: 75%; width: 4px; height: 4px; animation-delay: 3s; }
-        .star7  { top: 18%; left: 65%; width: 3px; height: 3px; animation-delay: 2.5s; }
-        .star8  { top: 65%; left: 25%; width: 4px; height: 4px; animation-delay: 0.3s; }
-        .star9  { top: 35%; left: 92%; width: 3px; height: 3px; animation-delay: 1.8s; }
-        .star10 { top: 78%; left: 60%; width: 3px; height: 3px; animation-delay: 2.7s; }
-        
-        /* Контент поверх звезд */
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
+        header h1 {
+            font-size: 24px;
+            color: #212529;
+            margin: 0;
         }
-        
-        /* Контейнер */
+
         .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 30px auto;
             padding: 0 20px;
         }
 
-        /* Шапка сайта */
-        header {
-            background-color: #ffffff;
-            border-bottom: 4px solid #1a3c6d; 
-            padding: 25px 0;
-            text-align: center;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-        }
-        .eparchy-title {
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #555555;
-            margin-bottom: 5px;
-        }
-        .main-title {
-            font-family: 'Ruslan Display', serif;
-            font-size: 2.3rem;
-            color: #1a3c6d;
-            font-weight: normal;
-        }
-
-        /* Главный баннер */
-        .hero {
-            padding: 55px 0;
-            text-align: center;
-        }
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-family: 'Ruslan Display', serif;
-            font-size: 3.2rem;
-            color: #1a3c6d;
-            margin-bottom: 15px;
-            font-weight: normal;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(255,255,255,0.9);
-        }
-        .hero-subtitle {
+        .quote {
             font-style: italic;
-            font-size: 1.35rem;
-            color: #111111;
-            margin-bottom: 25px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
-        }
-        
-        /* Блок с иконой */
-        .icon-block {
-            margin-bottom: 25px;
-        }
-        .icon-img {
-            max-width: 180px;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            border: 3px solid #6b4e2f;
-            background-color: #fff;
+            color: #495057;
+            border-left: 4px solid #ced4da;
+            padding-left: 15px;
+            margin: 20px 0 30px 0;
         }
 
-        .icon-protection {
-            display: inline-block;
-            background-color: #1a3c6d;
-            color: #ffffff;
-            padding: 12px 30px;
-            border: 2px solid #d1c9b8;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            font-weight: bold;
-        }
-
-        /* Секции */
         section {
-            padding: 60px 0;
-        }
-        .section-bg {
-            /* Плотная белая подложка для идеальной читаемости текста */
-            background-color: rgba(255, 255, 255, 0.92);
-            border-top: 2px solid #c9bda7;
-            border-bottom: 2px solid #c9bda7;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        h2 {
-            font-family: 'Ruslan Display', serif;
-            font-size: 2.5rem;
-            color: #1a3c6d;
-            text-align: center;
-            margin-bottom: 35px;
-            font-weight: normal;
-            position: relative;
-        }
-        h2::after {
-            content: "";
-            display: block;
-            width: 120px;
-            height: 3px;
-            background-color: #6b4e2f;
-            margin: 15px auto 0 auto;
+            margin-bottom: 30px;
         }
 
-        /* Блок О сестричестве */
-        .about-block {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            max-width: 950px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 35px;
-            border-radius: 6px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-            border: 2px solid #e8e4db;
-        }
-        .about-text {
-            flex: 1.2;
-            font-size: 1.2rem;
-            text-align: justify;
-        }
-        .about-text p {
-            margin-bottom: 20px;
-        }
-        .about-text p:last-child {
-            margin-bottom: 0;
-            }
-        .about-photo-wrapper {
-            flex: 0.8;
-            text-align: center;
-        }
-        .about-photo {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-            border: 2px solid #6b4e2f;
-        }
-
-        /* Сетка направлений деятельности */
-        .grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 20px;
-        }
-        .grid-item {
-            flex: 1;
-            min-width: 280px;
-            background-color: #ffffff;
-            border: 2px solid #c9bda7;
-            padding: 30px;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-        }
-        .grid-item h3 {
-            color: #1a3c6d;
+        section h3 {
+            font-size: 20px;
+            color: #212529;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 5px;
             margin-bottom: 15px;
-            font-size: 1.45rem;
-            font-weight: normal;
-            border-bottom: 2px solid #f4f1ea;
-            padding-bottom: 8px;
-        }
-        .grid-item p {
-            font-size: 1.15rem;
         }
 
-        /* Блок помощи */
-        .help-box {
-            background-color: #1a3c6d;
-            color: #ffffff;
-            padding: 50px;
-            border-radius: 4px;
-            text-align: center;
-            max-width: 850px;
-            margin: 0 auto;
-            box-shadow: 0 8px 30px rgba(26, 60, 109, 0.35);
-            border: 2px solid #c9bda7;
-        }
-        .help-box h3 {
-            font-family: 'Ruslan Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            font-weight: normal;
-        }
-        .help-box p {
-            margin-bottom: 20px;
-            color: #ffffff;
-            font-size: 1.25rem;
+        ul {
+            padding-left: 20px;
         }
 
-        /* Контакты */
-        .contacts-list {
-            list-style: none;
-            max-width: 650px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-        }
-        .contacts-list li {
-            padding: 20px 0;
-            border-bottom: 1px solid #6b4e2f;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .contacts-list li span:first-child {
-            font-weight: bold;
-            color: #1a3c6d;
-            padding-right: 15px;
+        li {
+            margin-bottom: 10px;
         }
 
-        /* Подвал */
         footer {
-            background-color: #111111;
-            color: #cccccc;
             text-align: center;
-            padding: 35px 0;
-            font-size: 0.95rem;
-            border-top: 4px solid #6b4e2f;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .main-title { font-size: 1.6rem; }
-            h2 { font-size: 2rem; }
-            .about-block { flex-direction: column; gap: 20px; padding: 20px; }
-            .grid { flex-direction: column; }
-            .contacts-list li {
-                flex-direction: column;
-                text-align: center;
-                gap: 5px;
-            }
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Звезды на фоне -->
-    <div class="stars-container">
-        <div class="star star1"></div>
-        <div class="star star2"></div>
-        <div class="star star3"></div>
-        <div class="star star4"></div>
-        <div class="star star5"></div>
-        <div class="star star6"></div>
-        <div class="star star7"></div>
-        <div class="star star8"></div>
-        <div class="star star9"></div>
-        <div class="star star10"></div>
+    <header>
+        <h2>Кокшетауская и Акмолинская епархия</h2>
+        <h3>Казахстанский Митрополичий Округ</h3>
+        <h1>Сестричество милосердия в честь Владимирской иконы Божией Матери</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="quote">
+            «Носите бремена друг друга, и таким образом исполните закон Христов» (Послание к Галатам 6:2)
+        </div>
+
+        <section>
+            <h3>О нашем служении</h3>
+            <p>Приветствуем вас на странице сестричества милосердия во имя Владимирской иконы Пресвятой Богородицы. Наше сестричество объединяет православных христианок, стремящихся воплотить заповедь Господню о любви к ближнему через деятельную помощь тем, кто оказался в немощи, болезни или трудных жизненных обстоятельствах.</p>
+            <p>Вдохновляясь Покровом Царицы Небесной, сёстры несут своё тихое и самоотверженное служение, стараясь принести утешение, тепло и духовную поддержку каждому нуждающемуся.</p>
+        </section>
+
+        <section>
+            <h3>Основные направления помощи</h3>
+            <p>Служение сестёр милосердия многогранно и охватывает тех, кто более всего нуждается в заботе:</p>
+            <ul>
+                <li><strong>Помощь тяжелобольным и немощным:</strong> уход на дому, содействие в медицинских вопросах, организация посещения священника для совершения Таинств.</li>
+                <li><strong>Социальная поддержка:</strong> забота о пожилых одиноких прихожанах, помощь многодетным семьям и людям, попавшим в сложные социальные условия.</li>
+                <li><strong>Духовная беседа и утешение:</strong> чтение духовной литературы, совместная молитва и просто искреннее человеческое участие.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Как принять участие</h3>
+            <p>Дела милосердия требуют общих усилий. Если вы чувствуете в себе призыв помогать ближним, хотите присоединиться к числу сестёр или поддержать наше служение посильной помощью (вещами, продуктами, личным временем) — мы будем рады принять любую вашу благую инициативу.</p>
+            <p>«Спешите делать добро, ведь вера без добрых дел мертва...»</p>
+        </section>
+
     </div>
 
-    <!-- Оболочка для контента поверх звезд -->
-    <div class="content-wrapper">
+    <footer>
+        <p>&copy; 2026 Сестричество милосердия в честь Владимирской иконы Божией Матери</p>
+        <p>Кокшетауская и Акмолинская епархия</p>
+    </footer>
 
-        <!-- Шапка -->
-        <header>
-            <div class="container">
-                <div class="eparchy-title">Казахстанский Митрополичий Округ</div>
-                <div class="main-title">Кокшетауская и Акмолинская епархия</div>
-            </div>
-        </header>
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сестры милосердия — Кокшетауская епархия</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-        <!-- Главный баннер -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <!-- Блок для Владимирской иконы (файл: vladimirskaya.jpeg) -->
-                    <div class="icon-block">
-                        <img src="vladimirskaya.jpeg" alt="Владимирская икона Божией Матери" class="icon-img" onerror="this.style.display='none'">
-                    </div>
-                    <h1>Сестричество милосердия</h1>
-                    <p class="hero-subtitle">Служение любви, сострадания и милосердия к ближним в г. Кокшетау</p>
-                    <div class="icon-protection">
-                        В честь иконы Владимирской Божией Матери
-                    </div>
-                </div>
-            </div>
-        </section>
+        header {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
 
-        <!-- О сестричестве -->
+        header h2 {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        header h3 {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #212529;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #495057;
+            border-left: 4px solid #ced4da;
+            padding-left: 15px;
+            margin: 20px 0 30px 0;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        section h3 {
+            font-size: 20px;
+            color: #212529;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Кокшетауская и Акмолинская епархия</h2>
+        <h3>Казахстанский Митрополичий Округ</h3>
+        <h1>Сестричество милосердия в честь Владимирской иконы Божией Матери</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="quote">
+            «Носите бремена друг друга, и таким образом исполните закон Христов» (Послание к Галатам 6:2)
+        </div>
+
         <section>
-            <div class="container">
-                <h2>О нашем служении</h2>
-                <div class="about-block">
-                    <div class="about-text">
-                        <p>Православное сестричество милосердия в городе Кокшетау объединяет людей, готовых посвятить свое время, силы и душевное тепло помощи тем, кто оказался в немощи и трудных жизненных обстоятельствах. Наше служение совершается по образу христианской любви и деятельного сострадания.</p>
-                        <p>Находясь под молитвенным покровом иконы Божией Матери «Владимирская», сестры стремятся приносить утешение, духовную и материальную поддержку каждому, кто нуждается в заботе и добром слове.</p>
-                    </div>
-                    <!-- Блок для фотографии сестер (файл: sestry.jpeg) -->
-                    <div class="about-photo-wrapper">
-                        <img src="sestry.jpeg" alt="Сестры милосердия за работой" class="about-photo" onerror="this.style.display='none'">
-                    </div>
-                </div>
-            </div>
+            <h3>О нашем служении</h3>
+            <p>Приветствуем вас на странице сестричества милосердия во имя Владимирской иконы Пресвятой Богородицы. Наше сестричество объединяет православных христианок, стремящихся воплотить заповедь Господню о любви к ближнему через деятельную помощь тем, кто оказался в немощи, болезни или трудных жизненных обстоятельствах.</p>
+            <p>Вдохновляясь Покровом Царицы Небесной, сёстры несут своё тихое и самоотверженное служение, стараясь принести утешение, тепло и духовную поддержку каждому нуждающемуся.</p>
         </section>
 
-        <!-- Направления деятельности -->
-        <section class="section-bg">
-            <div class="container">
-                <h2>Направления помощи</h2>
-                <div class="grid">
-                    <div class="grid-item">
-                        <h3>Помощь в больницах</h3>
-                        <p>Духовная и практическая поддержка тяжелобольных людей, уход, организация таинств Исповеди и Причастия для находящихся на лечении.</p>
-                    </div>
-                    <div class="grid-item">
-                        <h3>Забота о пожилых</h3>
-                        <p>Патронажная помощь на дому одиноким престарелым гражданам, доставка продуктов, лекарств и помощь в бытовых нуждах.</p>
-                    </div>
-                    <div class="grid-item">
-                        <h3>Поддержка семей</h3>
-                        <p>Помощь многодетным, малообеспеченным семьям и тем, кто попал в кризисную жизненную ситуацию, вещами и продуктами первой необходимости.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Как помочь -->
         <section>
-            <div class="container">
-                <div class="help-box">
-                    <h3>Как вы можете помочь?</h3>
-                    <p>Дело милосердия нуждается в поддержке каждого отзывчивого сердца. Вы можете присоединиться к сестричеству в качестве добровольца, помочь продуктами, средствами ухода или внести посильное пожертвование на дела благотворительности.</p>
-                </div>
-            </div>
+            <h3>Основные направления помощи</h3>
+            <p>Служение сестёр милосердия многогранно и охватывает тех, кто более всего нуждается в заботе:</p>
+            <ul>
+                <li><strong>Помощь тяжелобольным и немощным:</strong> уход на дому, содействие в медицинских вопросах, организация посещения священника для совершения Таинств.</li>
+                <li><strong>Социальная поддержка:</strong> забота о пожилых одиноких прихожанах, помощь многодетным семьям и людям, попавшим в сложные социальные условия.</li>
+                <li><strong>Духовная беседа и утешение:</strong> чтение духовной литературы, совместная молитва и просто искреннее человеческое участие.</li>
+            </ul>
         </section>
 
-        <!-- Контакты -->
-        <section class="section-bg">
-            <div class="container">
-                <h2>Контакты</h2>
-                <ul class="contacts-list">
-                    <li>
-                        <span>Местонахождение:</span>
-                        <span>Республика Казахстан, г. Кокшетау, Кафедральный собор Рождества Христова</span>
-                    </li>
-                    <li>
-                        <span>Телефон / WhatsApp:</span>
-                        <span>[Укажите номер телефона]</span>
-                    </li>
-                    <li>
-                        <span>E-mail:</span>
-                        <span>[Укажите электронный адрес]</span>
-                    </li>
-                </ul>
-            </div>
+        <section>
+            <h3>Как принять участие</h3>
+            <p>Дела милосердия требуют общих усилий. Если вы чувствуете в себе призыв помогать ближним, хотите присоединиться к числу сестёр или поддержать наше служение посильной помощью (вещами, продуктами, личным временем) — мы будем рады принять любую вашу благую инициативу.</p>
+            <p>«Спешите делать добро, ведь вера без добрых дел мертва...»</p>
         </section>
-
-        <!-- Подвал -->
-        <footer>
-            <div class="container">
-                <p>&copy; 2026 Кокшетауская епархия. Сестричество во имя Владимирской иконы Божией Матери. Все права защищены.</p>
-            </div>
-        </footer>
 
     </div>
+
+    <footer>
+        <p>&copy; 2026 Сестричество милосердия в честь Владимирской иконы Божией Матери</p>
+        <p>Кокшетауская и Акмолинская епархия</p>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сестры милосердия — Кокшетауская епархия</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        header h2 {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        header h3 {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #212529;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #495057;
+            border-left: 4px solid #ced4da;
+            padding-left: 15px;
+            margin: 20px 0 30px 0;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        section h3 {
+            font-size: 20px;
+            color: #212529;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Кокшетауская и Акмолинская епархия</h2>
+        <h3>Казахстанский Митрополичий Округ</h3>
+        <h1>Сестричество милосердия в честь Владимирской иконы Божией Матери</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="quote">
+            «Носите бремена друг друга, и таким образом исполните закон Христов» (Послание к Галатам 6:2)
+        </div>
+
+        <section>
+            <h3>О нашем служении</h3>
+            <p>Приветствуем вас на странице сестричества милосердия во имя Владимирской иконы Пресвятой Богородицы. Наше сестричество объединяет православных христианок, стремящихся воплотить заповедь Господню о любви к ближнему через деятельную помощь тем, кто оказался в немощи, болезни или трудных жизненных обстоятельствах.</p>
+            <p>Вдохновляясь Покровом Царицы Небесной, сёстры несут своё тихое и самоотверженное служение, стараясь принести утешение, тепло и духовную поддержку каждому нуждающемуся.</p>
+        </section>
+
+        <section>
+            <h3>Основные направления помощи</h3>
+            <p>Служение сестёр милосердия многогранно и охватывает тех, кто более всего нуждается в заботе:</p>
+            <ul>
+                <li><strong>Помощь тяжелобольным и немощным:</strong> уход на дому, содействие в медицинских вопросах, организация посещения священника для совершения Таинств.</li>
+                <li><strong>Социальная поддержка:</strong> забота о пожилых одиноких прихожанах, помощь многодетным семьям и людям, попавшим в сложные социальные условия.</li>
+                <li><strong>Духовная беседа и утешение:</strong> чтение духовной литературы, совместная молитва и просто искреннее человеческое участие.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Как принять участие</h3>
+            <p>Дела милосердия требуют общих усилий. Если вы чувствуете в себе призыв помогать ближним, хотите присоединиться к числу сестёр или поддержать наше служение посильной помощью (вещами, продуктами, личным временем) — мы будем рады принять любую вашу благую инициативу.</p>
+            <p>«Спешите делать добро, ведь вера без добрых дел мертва...»</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Сестричество милосердия в честь Владимирской иконы Божией Матери</p>
+        <p>Кокшетауская и Акмолинская епархия</p>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сестры милосердия — Кокшетауская епархия</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        header h2 {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        header h3 {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #212529;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #495057;
+            border-left: 4px solid #ced4da;
+            padding-left: 15px;
+            margin: 20px 0 30px 0;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        section h3 {
+            font-size: 20px;
+            color: #212529;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Кокшетауская и Акмолинская епархия</h2>
+        <h3>Казахстанский Митрополичий Округ</h3>
+        <h1>Сестричество милосердия в честь Владимирской иконы Божией Матери</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="quote">
+            «Носите бремена друг друга, и таким образом исполните закон Христов» (Послание к Галатам 6:2)
+        </div>
+
+        <section>
+            <h3>О нашем служении</h3>
+            <p>Приветствуем вас на странице сестричества милосердия во имя Владимирской иконы Пресвятой Богородицы. Наше сестричество объединяет православных христианок, стремящихся воплотить заповедь Господню о любви к ближнему через деятельную помощь тем, кто оказался в немощи, болезни или трудных жизненных обстоятельствах.</p>
+            <p>Вдохновляясь Покровом Царицы Небесной, сёстры несут своё тихое и самоотверженное служение, стараясь принести утешение, тепло и духовную поддержку каждому нуждающемуся.</p>
+        </section>
+
+        <section>
+            <h3>Основные направления помощи</h3>
+            <p>Служение сестёр милосердия многогранно и охватывает тех, кто более всего нуждается в заботе:</p>
+            <ul>
+                <li><strong>Помощь тяжелобольным и немощным:</strong> уход на дому, содействие в медицинских вопросах, организация посещения священника для совершения Таинств.</li>
+                <li><strong>Социальная поддержка:</strong> забота о пожилых одиноких прихожанах, помощь многодетным семьям и людям, попавшим в сложные социальные условия.</li>
+                <li><strong>Духовная беседа и утешение:</strong> чтение духовной литературы, совместная молитва и просто искреннее человеческое участие.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Как принять участие</h3>
+            <p>Дела милосердия требуют общих усилий. Если вы чувствуете в себе призыв помогать ближним, хотите присоединиться к числу сестёр или поддержать наше служение посильной помощью (вещами, продуктами, личным временем) — мы будем рады принять любую вашу благую инициативу.</p>
+            <p>«Спешите делать добро, ведь вера без добрых дел мертва...»</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Сестричество милосердия в честь Владимирской иконы Божией Матери</p>
+        <p>Кокшетауская и Акмолинская епархия</p>
+    </footer>
 
 </body>
 </html>
